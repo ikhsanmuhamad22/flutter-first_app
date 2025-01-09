@@ -5,23 +5,44 @@ const startAligment = Alignment.topLeft;
 const endAligment = Alignment.bottomRight;
 
 class GradientContainer extends StatelessWidget {
-  const GradientContainer({super.key});
+  const GradientContainer(this.color1, this.color2, {super.key});
+
+  final Color color1;
+  final Color color2;
 
   @override
   Widget build(context) {
     return Container(
       decoration: BoxDecoration(
           gradient: LinearGradient(
-        colors: [
-          Color.fromARGB(255, 26, 2, 80),
-          Color.fromARGB(255, 26, 2, 80)
-        ],
+        colors: [color1, color2],
         begin: startAligment,
         end: endAligment,
       )),
       child: Center(
-        child: StyledText('Hello World!')
-      ),
+          child: Image.asset(
+        'assets/images/dice-1.png',
+        width: 200,
+      )),
     );
   }
-} 
+}
+
+// class GradientContainer extends StatelessWidget {
+//   const GradientContainer({super.key, required this.colors});
+
+//   final List<Color> colors;
+
+//   @override
+//   Widget build(context) {
+//     return Container(
+//       decoration: BoxDecoration(
+//           gradient: LinearGradient(
+//         colors: colors,
+//         begin: startAligment,
+//         end: endAligment,
+//       )),
+//       child: Center(child: StyledText('Hello World!')),
+//     );
+//   }
+// }
